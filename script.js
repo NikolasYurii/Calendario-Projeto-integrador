@@ -22,6 +22,7 @@ let activeDay;
 let month = today.getMonth();
 let year = today.getFullYear();
 
+
 const months = [
   "Janeiro",
   "Fevereiro",
@@ -89,7 +90,8 @@ function initCalendar() {
         days += `<div class="day event">${i}</div>`;
       } else {
         days += `<div class="day ">${i}</div>`;
-      }
+      } 
+      
     }
   }
 
@@ -137,7 +139,7 @@ function addListner() {
       });
 
       if (e.target.classList.contains("prev-date")) {
-        prevMonth();        
+        prevMonth();
         setTimeout(() => {
           const days = document.querySelectorAll(".day");
           days.forEach((day) => {
@@ -277,10 +279,10 @@ function defineProperty() {
   osccred.style.color = "#ccc";
   osccred.style.fontFamily = "sans-serif";
   osccred.style.padding = "5px";
-  osccred.style.background = "#fff";
+  osccred.style.background = "#3b3a3a";
   osccred.style.borderTopLeftRadius = "5px";
   osccred.style.borderBottomRightRadius = "5px";
-  osccred.style.boxShadow = "0 0 5px #ccc";
+  osccred.style.boxShadow = "0 0 5px #fff";
   document.body.appendChild(osccred);
 }
 
@@ -317,7 +319,7 @@ addEventSubmit.addEventListener("click", () => {
     return;
   }
 
-  
+
   const timeFromArr = eventTimeFrom.split(":");
   const timeToArr = eventTimeTo.split(":");
   if (
@@ -335,7 +337,7 @@ addEventSubmit.addEventListener("click", () => {
   const timeFrom = convertTime(eventTimeFrom);
   const timeTo = convertTime(eventTimeTo);
 
-  
+
   let eventExist = false;
   eventsArr.forEach((event) => {
     if (
@@ -411,7 +413,7 @@ eventsContainer.addEventListener("click", (e) => {
               event.events.splice(index, 1);
             }
           });
-          
+
           if (event.events.length === 0) {
             eventsArr.splice(eventsArr.indexOf(event), 1);
             const activeDayEl = document.querySelector(".day.active");
